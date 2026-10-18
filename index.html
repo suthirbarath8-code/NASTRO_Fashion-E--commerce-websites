@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" class="page-home">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NOSTRA+ New World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="mouseGlowFollower" class="mouse-glow-follower"></div>
+
+  <!-- HEADER -->
+  <header id="mainHeader">
+    <a class="logo" href="#top" title="NOSTRA+ NEW WORLD">
+      <span class="logo-text">
+        NOSTRA +
+        <small>NEW WORLD</small>
+      </span>
+    </a>
+    <nav id="nav">
+      <a href="#top" class="on">Home</a>
+      <a href="#best-collection">Curated</a>
+      <a href="#our-works">Lookbook</a>
+      <a href="collections.html">Collections</a>
+      <a href="#shop">Shop All</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="icons">
+      <button aria-label="Favourites" id="favBtn" title="Your Favourites">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round" style="display:block">
+          <path
+            d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z" />
+        </svg>
+        <b id="favCount">0</b>
+      </button>
+      <button aria-label="Sign In" id="userBtn" class="signin-btn" title="Sign In / Account">Sign In</button>
+      <button aria-label="Cart" id="cartBtn" title="Your Cart">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round" style="display:block">
+          <circle cx="9" cy="20" r="1.4" />
+          <circle cx="18" cy="20" r="1.4" />
+          <path d="M2 3h3l2.7 12.4a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 7H6" />
+        </svg>
+        <b id="count">0</b>
+      </button>
+      <button aria-label="Menu" id="menuBtn" title="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- AUTH MODAL -->
+  <div class="auth-modal" id="authModal" aria-hidden="true">
+    <div class="auth-backdrop" id="authBackdrop"></div>
+    <div class="auth-card">
+      <button class="auth-close" id="closeAuthModal" aria-label="Close dialog">&times;</button>
+
+      <div class="auth-brand-header">
+        <h3>NOSTRA<span style="color:var(--acc)">+</span></h3>
+        <p id="authSubtitle">Join the future of performance luxury</p>
+      </div>
+
+      <div class="demo-login-box">
+        <button class="btn-demo-login" id="demoLoginBtn" type="button">
+          <span class="demo-bolt"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"
+              style="display:inline-block;vertical-align:middle;color:#f26a1b">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></span>
+          <div class="demo-text">
+            <strong>1-Click Instant Demo Login</strong>
+            <small>Continue as Alex Rivera (VIP Gold Member)</small>
+          </div>
+          <span class="demo-arrow">&rarr;</span>
+        </button>
+      </div>
+
+      <div class="auth-divider"><span>or with credentials</span></div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab on" id="tabSignIn" type="button">Sign In</button>
+        <button class="auth-tab" id="tabSignUp" type="button">Create Account</button>
+      </div>
+
+      <form class="auth-form" id="signInForm" onsubmit="return false;">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" value="alex@nostra.fashion" required
+            autocomplete="email">
+        </div>
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="loginPass">Password</label>
+            <a href="#" id="forgotPassLink" class="form-link">Forgot password?</a>
+          </div>
+          <div class="input-password-wrap">
+            <input type="password" id="loginPass" placeholder="••••••••" value="nostra2026" required
+              autocomplete="current-password">
+            <button type="button" class="btn-toggle-pass" id="toggleLoginPass"
+              aria-label="Toggle password visibility"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block;vertical-align:middle">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg></button>
+          </div>
+        </div>
+        <div class="form-remember-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember me</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-block auth-submit-btn" id="submitSignIn">
+          Sign In to NOSTRA+ &rarr;
+        </button>
+      </form>
+
+      <form class="auth-form" id="signUpForm" style="display:none;" onsubmit="return false;">
+        <div class="form-group">
+          <label for="registerName">Full Name</label>
+          <input type="text" id="registerName" placeholder="Elena Rostova" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Email Address</label>
+          <input type="email" id="registerEmail" placeholder="elena@nostra.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="registerPass">Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="registerPass" placeholder="Create strong password" required
+              autocomplete="new-password">
+            <button type="button" class="btn-toggle-pass" id="toggleRegisterPass"
+              aria-label="Toggle password visibility"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block;vertical-align:middle">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg></button>
+          </div>
+          <div class="pass-strength-bar">
+            <div class="pass-strength-fill" id="passStrength"></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block auth-submit-btn" id="submitSignUp">
+          Create NOSTRA+ Account &rarr;
+        </button>
+      </form>
+
+      <div class="auth-footer-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg> 256-bit encrypted authentication &middot; VIP Gold Rewards
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE DRAWER -->
+  <div class="drawer-overlay" id="profileOverlay"></div>
+  <aside class="drawer" id="profileDrawer" aria-label="Member Profile">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <h3>Member Profile</h3>
+        <span class="pill-badge vip-badge" id="profileTierBadge">VIP Gold</span>
+      </div>
+      <button class="drawer-close" id="closeProfile" aria-label="Close profile">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <div class="profile-card">
+        <div class="profile-avatar" id="profileAvatar">AR</div>
+        <div class="profile-info">
+          <h4 id="profileName">Alex Rivera</h4>
+          <p id="profileEmail">alex@nostra.fashion</p>
+          <span class="vip-member-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"
+              style="display:inline-block;vertical-align:middle;color:#f26a1b">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg> VIP Club Member</span>
+        </div>
+      </div>
+
+      <div class="rewards-card">
+        <div class="rewards-header">
+          <span>NOSTRA+ Rewards</span>
+          <strong id="profilePoints">640 pts</strong>
+        </div>
+        <div class="rewards-val">Redeemable for <strong>$32.00 Store Credit</strong></div>
+        <div class="points-progress-bar">
+          <div class="points-fill" style="width: 68%;"></div>
+        </div>
+        <small>360 points until Diamond VIP Status</small>
+      </div>
+
+      <div class="benefits-box">
+        <h5>Active Member Privileges</h5>
+        <ul class="benefits-list">
+          <li><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+                <rect x="1" y="3" width="15" height="13" rx="2" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg></span> Free Express 2-Day Shipping</li>
+          <li><span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"
+                style="display:inline-block;vertical-align:middle;color:#f26a1b">
+                <path
+                  d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z" />
+              </svg></span> VIP Early Access to New Collections</li>
+          <li><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+                <rect x="3" y="8" width="18" height="13" rx="2" />
+                <path d="M12 8v13" />
+                <path d="M19 12H5" />
+                <path d="M12 8a3 3 0 0 1-3-3c0-1.5 1.5-2 3 0 1.5-2 3-1.5 3 0a3 3 0 0 1-3 3Z" />
+              </svg></span> 10% Birthday Reward Voucher</li>
+          <li><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                <path d="M16 21h5v-5" />
+              </svg></span> 45-Day Complimentary Returns</li>
+        </ul>
+      </div>
+
+      <div class="recent-order-box">
+        <h5>Recent Order</h5>
+        <div class="recent-order-item">
+          <div class="order-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block;vertical-align:middle">
+              <path
+                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+              <path d="m3.3 7 8.7 5 8.7-5" />
+              <path d="M12 22V12" />
+            </svg></div>
+          <div class="order-desc">
+            <strong>Order #NS-89241</strong>
+            <span>Court Dress &middot; Track Jacket</span>
+          </div>
+          <span class="order-status-tag">Shipped</span>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-block" id="profileShopBtn">Continue Shopping &rarr;</button>
+      <button class="btn-outline btn-logout" id="logoutBtn">Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- CART DRAWER -->
+  <div class="drawer-overlay" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <h3>Shopping Cart</h3>
+        <span class="pill-badge" id="cartDrawerCount">0 items</span>
+      </div>
+      <button class="drawer-close" id="closeCart" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer" id="cartFooter">
+      <div class="free-shipping-bar">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+            <rect x="1" y="3" width="15" height="13" rx="2" />
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+            <circle cx="5.5" cy="18.5" r="2.5" />
+            <circle cx="18.5" cy="18.5" r="2.5" />
+          </svg></span> Free Express Shipping included on all orders
+      </div>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <button class="btn btn-block" id="checkoutBtn">Proceed to Checkout &rarr;</button>
+      <button class="btn-outline" id="clearCartBtn">Clear Cart</button>
+    </div>
+  </aside>
+
+  <!-- FAVOURITES DRAWER -->
+  <div class="drawer-overlay" id="favOverlay"></div>
+  <aside class="drawer" id="favDrawer" aria-label="Favourites Wishlist">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <h3>Favourites</h3>
+        <span class="pill-badge" id="favDrawerCount">0 items</span>
+      </div>
+      <button class="drawer-close" id="closeFav" aria-label="Close favourites">&times;</button>
+    </div>
+    <div class="drawer-body" id="favItems"></div>
+    <div class="drawer-footer">
+      <button class="btn btn-block" id="addAllFavToCartBtn">Add All Favourites to Cart</button>
+      <button class="btn-outline" id="clearFavBtn">Clear Favourites</button>
+    </div>
+  </aside>
+
+  <!-- MOBILE MENU DRAWER -->
+  <div class="drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <div class="logo" style="color:var(--ink);text-shadow:none">
+          <span class="logo-text">
+            <h3>NOSTRA<span style="color:var(--acc)">+</span></h3>
+            <small>NEW WORLD</small>
+          </span>
+        </div>
+      </div>
+      <button class="drawer-close" id="closeMobileMenu" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#shop" class="mobile-nav-link on" data-f="All"><span><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg></span> Shop All</a>
+      <a href="collections.html" class="mobile-nav-link"><span><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <path
+              d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+          </svg></span> Collections Archive</a>
+      <a href="#best-collection" class="mobile-nav-link"><span><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg></span> Curated Collection</a>
+      <a href="#our-works" class="mobile-nav-link"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg></span> Our Lookbook</a>
+      <a href="contact.html" class="mobile-nav-link"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-10 6L2 7" />
+          </svg></span> Contact Us</a>
+    </div>
+    <div class="mobile-quick-actions">
+      <button class="mobile-action-btn" id="mAccountBtn">
+        <span id="mAccountLabel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg> Sign In / Join VIP</span>
+        <span class="pill-badge" id="mAccountBadge">VIP</span>
+      </button>
+      <button class="mobile-action-btn" id="mCartBtn">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle">
+            <circle cx="9" cy="20" r="1.4" />
+            <circle cx="18" cy="20" r="1.4" />
+            <path d="M2 3h3l2.7 12.4a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 7H6" />
+          </svg> View Cart</span>
+        <span class="pill-badge" id="mCartBadge">0</span>
+      </button>
+      <button class="mobile-action-btn" id="mFavBtn">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle;color:#f26a1b">
+            <path
+              d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z" />
+          </svg> View Favourites</span>
+        <span class="pill-badge" id="mFavBadge">0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main id="top">
+    <div class="hero" id="hero">
+      <div class="hero-orb hero-orb-1" id="heroOrb1"></div>
+      <div class="hero-orb hero-orb-2" id="heroOrb2"></div>
+
+      <div class="big" aria-hidden="true">FASHION</div>
+      <div class="model" id="model">
+        <img id="modelImg" src="Fashion%20Model%20and%20Orange%20Disc%20Cutouts.png"
+          alt="Model wearing Fashion+ apparel" onerror="this.parentNode.classList.add('noimg')">
+        <span class="ph-text">Add your image at<br>Fashion%20Model%20and%20Orange%20Disc%20Cutouts.png</span>
+      </div>
+      <div class="copy">
+        <h1 id="title">Style in motion</h1>
+        <p id="sub">Performance apparel, footwear and gear for a stronger, more confident game.</p>
+        <a class="btn" href="collections.html">Shop now &rarr;</a>
+        <div class="perks"><span>Premium quality</span><span>Free shipping</span><span>Easy returns</span></div>
+      </div>
+      <div class="thumbs">
+        <div id="thumbList"></div>
+      </div>
+      <div class="arrows">
+        <button id="prev" aria-label="Previous">&larr;</button>
+        <button id="next" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+    <!-- =========================================================
+         SECTION 2: THE BEST COLLECTION (REFERENCE IMAGE 2)
+         ========================================================= -->
+    <section class="ref-section ref-best-collection" id="best-collection">
+      <div class="ref-collection-container">
+        <!-- Left Editorial Text Block with vertical accent line -->
+        <div class="ref-collection-intro">
+          <div class="ref-header-bar vertical-left">
+            <div class="ref-accent-line"></div>
+            <div class="ref-header-text">
+              <h2 class="ref-title">The Best<br>Collection</h2>
+              <p class="ref-subtitle-lead">Small worlds in tailoring and tactile draping, crafted by hand.</p>
+            </div>
+          </div>
+          <div class="ref-collection-narrative">
+            <p>Each garment is tailored by hand, so no two silhouettes are ever the same. A little luxury for every
+              corner of your lifestyle.</p>
+            <p>Quiet sophistication, made to be lived in. Style, framed in perfection.</p>
+          </div>
+        </div>
+
+        <!-- Right 4-Product Row -->
+        <div class="ref-product-showcase">
+          <!-- Item 1 -->
+          <div class="ref-prod-card" data-name="Linen Studio Overshirt" data-price="1800" data-cat="Men">
+            <div class="ref-prod-img-wrap">
+              <img src="mshirt/ms (1).jpg" alt="Linen Studio Overshirt" loading="lazy">
+              <button class="ref-fav-btn" onclick="handleRefFav('Linen Studio Overshirt', 'Men', 1800, svgs.men, this)"
+                aria-label="Favourite">&#9825;</button>
+              <button class="ref-quick-add"
+                onclick="handleRefAdd('Linen Studio Overshirt', 'Men', 1800, svgs.men, this)">+ Quick Add</button>
+            </div>
+            <div class="ref-prod-meta">
+              <h4 class="ref-prod-title">Linen Studio Overshirt</h4>
+              <p class="ref-prod-desc">Raw French linen, relaxed drape</p>
+              <div class="ref-prod-price">&#8377;1,800</div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="ref-prod-card" data-name="Pleated Studio Trouser" data-price="2400" data-cat="Men">
+            <div class="ref-prod-img-wrap">
+              <img src="mpant/48fe1b26be5e6d7637c8df19136669a2.jpg" alt="Pleated Studio Trouser" loading="lazy">
+              <button class="ref-fav-btn" onclick="handleRefFav('Pleated Studio Trouser', 'Men', 2400, svgs.men, this)"
+                aria-label="Favourite">&#9825;</button>
+              <button class="ref-quick-add"
+                onclick="handleRefAdd('Pleated Studio Trouser', 'Men', 2400, svgs.men, this)">+ Quick Add</button>
+            </div>
+            <div class="ref-prod-meta">
+              <h4 class="ref-prod-title">Pleated Studio Trouser</h4>
+              <p class="ref-prod-desc">Wool-blend, sharp structural crease</p>
+              <div class="ref-prod-price">&#8377;2,400</div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="ref-prod-card" data-name="Architectural Trench" data-price="2900" data-cat="Women">
+            <div class="ref-prod-img-wrap">
+              <img src="mj/0c5d1592181bfb592cd8dd44367f85b9.jpg" alt="Architectural Trench" loading="lazy">
+              <button class="ref-fav-btn"
+                onclick="handleRefFav('Architectural Trench', 'Women', 2900, svgs.women, this)"
+                aria-label="Favourite">&#9825;</button>
+              <button class="ref-quick-add"
+                onclick="handleRefAdd('Architectural Trench', 'Women', 2900, svgs.women, this)">+ Quick Add</button>
+            </div>
+            <div class="ref-prod-meta">
+              <h4 class="ref-prod-title">Architectural Trench</h4>
+              <p class="ref-prod-desc">Weather-proof gabardine, horn buttons</p>
+              <div class="ref-prod-price">&#8377;2,900</div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="ref-prod-card" data-name="Ribbed Silk Knit Polo" data-price="1500" data-cat="Women">
+            <div class="ref-prod-img-wrap">
+              <img src="wshirt/23ffd8c6eda283c8ae3cb4dc256ff36b.jpg" alt="Ribbed Silk Knit Polo" loading="lazy">
+              <button class="ref-fav-btn"
+                onclick="handleRefFav('Ribbed Silk Knit Polo', 'Women', 1500, svgs.women, this)"
+                aria-label="Favourite">&#9825;</button>
+              <button class="ref-quick-add"
+                onclick="handleRefAdd('Ribbed Silk Knit Polo', 'Women', 1500, svgs.women, this)">+ Quick Add</button>
+            </div>
+            <div class="ref-prod-meta">
+              <h4 class="ref-prod-title">Ribbed Silk Knit Polo</h4>
+              <p class="ref-prod-desc">Fine-gauge knit, seamless drape</p>
+              <div class="ref-prod-price">&#8377;1,500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 3: OUR WORKS / LOOKBOOK (REFERENCE IMAGE 3)
+         ========================================================= -->
+    <section class="ref-section ref-our-works" id="our-works">
+      <div class="ref-works-container">
+        <!-- Left 4-Column Asymmetric Photo Collage -->
+        <div class="ref-works-collage">
+          <!-- Col 1: Tall Single Image -->
+          <div class="ref-collage-col col-1">
+            <div class="ref-work-item tall">
+              <img src="./mj/mj.............jpg" alt="Look 01: Street Tailoring" loading="lazy">
+              <span class="ref-work-tag">Look 01 &bull; Street Tailoring</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Two Stacked Images -->
+          <div class="ref-collage-col col-2">
+            <div class="ref-work-item">
+              <img src="./mj/mj...........jpg" alt="Look 02: Minimalist Studio" loading="lazy">
+              <span class="ref-work-tag">Look 02 &bull; Minimalist</span>
+            </div>
+            <div class="ref-work-item">
+              <img src="./mj/mj.jpg" alt="Look 03: Structured Cargo" loading="lazy">
+              <span class="ref-work-tag">Look 03 &bull; Tapered</span>
+            </div>
+          </div>
+
+          <!-- Col 3: Two Stacked Images (Top one with round arched crop) -->
+          <div class="ref-collage-col col-3">
+            <div class="ref-work-item arched">
+              <img src="./mj/mj...jpg" alt="Look 04: Avant-Garde Draping" loading="lazy">
+              <span class="ref-work-tag">Look 04 &bull; Avant-Garde</span>
+            </div>
+            <div class="ref-work-item">
+              <img src="./mj/mj..jpg" alt="Look 05: Modern Monochrome" loading="lazy">
+              <span class="ref-work-tag">Look 05 &bull; Monochrome</span>
+            </div>
+          </div>
+
+          <!-- Col 4: Tall Single Image -->
+          <div class="ref-collage-col col-4">
+            <div class="ref-work-item tall">
+              <img src="./mj/mj......jpg" alt="Look 06: Editorial Silhouette" loading="lazy">
+              <span class="ref-work-tag">Look 06 &bull; Editorial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Narrative Column with Vertical Accent Line -->
+        <div class="ref-works-copy">
+          <div class="ref-header-bar vertical-left">
+            <div class="ref-accent-line"></div>
+            <div class="ref-header-text">
+              <h2 class="ref-title">Our<br>Styles</h2>
+            </div>
+          </div>
+          <div class="ref-works-text-block">
+            <p>
+              Take a look at some of the distinctive silhouettes, runway concepts, and bespoke looks we have helped
+              bring to life with visionary artistry.
+            </p>
+            <p>
+              From quiet homes to busy high-fashion runways and creative studios, every look gets its own signature cut
+              and tailored grace.
+            </p>
+          </div>
+          <a href="contact.html" class="ref-circle-cta" id="startProjectBtn">
+            <span class="ref-arrow-circle">&rarr;</span>
+            <span class="ref-cta-text">START YOUR PROJECT</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CATEGORIES SECTION: 3D FANNED CARD STACK (WHITE BACKGROUND)
+         ========================================================= -->
+    <section id="cats">
+      <div class="cats-ambient-glow"></div>
+      <div class="cats-container">
+        <!-- Section Header -->
+        <div class="cats-header">
+          <div class="cats-header-left">
+            <div class="cats-accent-line"></div>
+            <div>
+              <h2 class="cats-title">Curated<br>Categories</h2>
+              <p class="cats-subtitle">Sculpted capsules in motion. Click any card to pop it up in the center, or switch
+                display modes.</p>
+            </div>
+          </div>
+          <div class="cats-header-controls">
+            <div class="deck-mode-toggle" id="deckModeToggle">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Stage (Defaults to Mode-Scatter matching reference image) -->
+        <div class="deck-3d-stage-wrapper" id="deckStageWrapper">
+          <div class="deck-floor-shadow"></div>
+          <div class="deck-3d-stage mode-scatter" id="deck3dStage">
+
+            <!-- Card 0: NEON DREAMS (Top-Left corner slot) -->
+            <div class="deck-card deck-card-0" data-index="0" data-slot="tl" data-pos="0"
+              onclick="handleDeckCardClick(0)">
+              <div class="deck-card-bg-wrap">
+                <img src="./mpant/3e119da2ac0cfc1debe7466e829a0f7e.jpg" alt="Neon Dreams" class="deck-card-bg"
+                  style="filter: brightness(0.92) contrast(1.05); transform: scale(1.04);">
+                <div
+                  style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(10,14,25,0.15) 0%, rgba(10,14,25,0.6) 100%)">
+                </div>
+              </div>
+              <div class="deck-card-chip">COTTOn</div>
+              <div class="deck-card-label">
+                <span class="deck-card-title">PANT"S</span>
+                <span class="deck-card-tag">Cyber Street & Ambient Glow</span>
+              </div>
+            </div>
+
+            <!-- Card 1: URBAN STUDIO (Top-Right corner slot) -->
+            <div class="deck-card deck-card-1" data-index="1" data-slot="tr" data-pos="1"
+              onclick="handleDeckCardClick(1)">
+              <div class="deck-card-bg-wrap">
+                <img src="./mj/mj...............jpg" alt="Urban Studio" class="deck-card-bg"
+                  style="filter: brightness(0.92) contrast(1.05); transform: scale(1.04);">
+                <div
+                  style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(210,220,225,0.2) 0%, rgba(20,30,35,0.58) 100%)">
+                </div>
+              </div>
+              <div class="deck-card-chip">Minimal Living</div>
+              <div class="deck-card-label">
+                <span class="deck-card-title">JACKETS</span>
+                <span class="deck-card-tag">Minimalist Layers & Architecture</span>
+              </div>
+            </div>
+
+            <!-- Card 2: STUDIO LIGHT (Center slot - POPPED UP in reference image!) -->
+            <div class="deck-card deck-card-2 is-front" data-index="2" data-slot="center" data-pos="2"
+              onclick="handleDeckCardClick(2)">
+              <div class="deck-card-bg-wrap" style="position:absolute;inset:0;background:#1a1a1a;">
+                <img src="Fashion Model and Orange Disc Cutouts.png" alt="Studio Light Model" class="deck-card-bg"
+                  style="object-position: 50% 12%; object-fit: cover;">
+                <div
+                  style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.75) 100%);">
+                </div>
+              </div>
+              <div class="deck-card-chip">FABRIC</div>
+              <div class="deck-card-label">
+                <span class="deck-card-title">PARTY</span>
+                <span class="deck-card-tag">Iridescent Lilac & Portraiture</span>
+              </div>
+            </div>
+
+            <!-- Card 3: GOLDEN HOUR (Bottom-Left corner slot) -->
+            <div class="deck-card deck-card-3" data-index="3" data-slot="bl" data-pos="3"
+              onclick="handleDeckCardClick(3)">
+              <div class="deck-card-bg-wrap">
+                <img src="./mshirt/ms (6).jpg" alt="Golden Hour Mountains" class="deck-card-bg"
+                  style="object-position: center 38%; object-fit: cover;">
+                <div
+                  style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(245, 158, 11, 0.15) 0%, rgba(0,0,0,0.6) 100%);">
+                </div>
+              </div>
+              <div class="deck-card-chip">COTTON</div>
+              <div class="deck-card-label">
+                <span class="deck-card-title">SHIRT'S</span>
+                <span class="deck-card-tag">SMOOTH AND COMFORTABLE</span>
+              </div>
+            </div>
+
+            <!-- Card 4: MONOCHROME (Bottom-Right corner slot) -->
+            <div class="deck-card deck-card-4" data-index="4" data-slot="br" data-pos="4"
+              onclick="handleDeckCardClick(4)">
+              <div class="deck-card-bg-wrap">
+                <img src="./accero/53b27345a0a21aac962338623f965404.jpg" alt="Golden Hour Mountains" class="deck-card-bg"
+                  style="object-position: center 38%; object-fit: cover;">
+                <div
+                  style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(245, 158, 11, 0.15) 0%, rgba(0,0,0,0.6) 100%);">
+                </div>
+              </div>
+              <div class="deck-card-chip">LONG LASTING</div>
+              <div class="deck-card-label">
+                <span class="deck-card-title">ACCESSORIES</span>
+                <span class="deck-card-tag">Artisanal Haute Drape & Wave Contour</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 1: WHY CHOOSE NOSTRA (REFERENCE IMAGE 1)
+         ========================================================= -->
+    <section class="ref-section ref-why-choose" id="why-choose">
+      <div class="ref-header-bar">
+        <div class="ref-accent-line"></div>
+        <div class="ref-header-text">
+          <h2 class="ref-title">Why choose NOSTRA</h2>
+          <p class="ref-subtitle">Four promises we keep with every order</p>
+        </div>
+      </div>
+
+      <div class="ref-why-grid">
+        <!-- 4 Pill Cards Column -->
+        <div class="ref-pill-cards">
+          <!-- Card 1 -->
+          <div class="ref-pill-card">
+            <div class="ref-pill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+            </div>
+            <div class="ref-pill-content">
+              <h3>Premium Quality Fabrics</h3>
+              <p>Hand-picked and checked. Organic silks, French linens & pure Egyptian cottons.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="ref-pill-card">
+            <div class="ref-pill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <div class="ref-pill-content">
+              <h3>Expert Styling Support</h3>
+              <p>Personal styling advice, fit guidance, and bespoke curation for every step.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="ref-pill-card">
+            <div class="ref-pill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13" rx="2" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16 8" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <div class="ref-pill-content">
+              <h3>Safe & Fast Global Delivery</h3>
+              <p>Packed with care in breathable luxury garment bags. Freshness delivered to you.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="ref-pill-card">
+            <div class="ref-pill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z" />
+              </svg>
+            </div>
+            <div class="ref-pill-content">
+              <h3>Conscious Communities</h3>
+              <p>Ethical craftsmanship, sustainable low-waste ateliers. Together for a better tomorrow.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Image Column -->
+        <div class="ref-why-center-img">
+          <div class="ref-img-frame">
+            <img src="mj/49432250a4dda5c2eff6bfa612a02ee6.jpg" alt="NOSTRA Atelier Craftsmanship" loading="lazy">
+            <div class="ref-img-badge">ATELIER CRAFT</div>
+          </div>
+        </div>
+
+        <!-- Right Copy & Action Column -->
+        <div class="ref-why-copy">
+          <h3 class="ref-hero-serif">Tailored with care,<br>placed with love</h3>
+          <p class="ref-body-text">
+            Every NOSTRA garment is sculpted by hand and checked before it leaves our atelier, so your signature look
+            arrives immaculate, poised, and ready to turn heads wherever you step.
+          </p>
+          <a href="#best-collection" class="ref-circle-cta">
+            <span class="ref-arrow-circle">&rarr;</span>
+            <span class="ref-cta-text">SHOP NOW</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <div class="sf-grid">
+        <div class="sf-brand">
+          <a href="index.html" class="sf-logo">NOSTRA<i>+</i></a>
+          <p class="sf-desc">Architectural fashion crafted with technical discipline and a quiet sense of drape &mdash; limited capsules for the discerning eye, delivered to your door.</p>
+          <div class="sf-social">
+            <a href="#" aria-label="Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="YouTube" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-4.8z"/><polygon points="9.7 15.2 15.5 12 9.7 8.8 9.7 15.2"/></svg></a>
+            <a href="#" aria-label="WhatsApp" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg></a>
+          </div>
+        </div>
+
+        <div class="sf-col">
+          <h4>Company</h4>
+          <ul class="sf-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="index.html#best-collection">Curated</a></li>
+            <li><a href="index.html#our-works">Lookbook</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="sf-col">
+          <h4>Customer Care</h4>
+          <ul class="sf-links">
+            <li><a href="collections.html">Size &amp; Fit Guide</a></li>
+            <li><a href="contact.html">Track Your Order</a></li>
+            <li><a href="contact.html">Shipping &amp; Returns</a></li>
+            <li><a href="contact.html">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="sf-col">
+          <h4>Get in touch</h4>
+          <ul class="sf-contact">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+000000000000">+00 000 000 0000</a></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:concierge@nostra-atelier.example">concierge@nostra-atelier.example</a></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>NOSTRA+ Atelier, Studio Street, Your City</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sf-bottom">
+        <span>&copy; 2026 NOSTRA+ New World. All rights reserved.</span>
+        <div class="sf-bottom-right">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <button type="button" class="sf-top" id="sfTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="contact" href="contact.html" id="contact">CONTACT US</a>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
